@@ -7,6 +7,9 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  def show
+  end
+
   def new
     @portfolio_item = Portfolio.new
   end
@@ -16,7 +19,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to @portfolio_item, notice: 'Your portflio is now live' }
+        format.html { redirect_to :index, notice: 'Your portflio is now live' }
       else
         format.html { render :new }
       end
@@ -29,7 +32,7 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_item_params)
-        format.html { redirect_to @portfolio_item, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to :index, notice: 'Blog was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -45,6 +48,6 @@ class PortfoliosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def portfolio_item_params
-    params.require(:portfolio_item).permit(:title, :body, :subtitle)
+    params.require(:portfolio).permit(:title, :body, :subtitle)
   end
 end
