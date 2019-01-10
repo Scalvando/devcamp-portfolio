@@ -57,3 +57,5 @@ gem 'friendly_id', '~> 5.2.0'
 
 gem "rack", ">= 2.0.6"
 gem "loofah", ">= 2.2.3"
+
+gem 'devise', '~> 4.5'
