@@ -7,19 +7,24 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  def angular
+    @angular_portfolio_items = Portfolio.angular
+  end
+
   def show
   end
 
   def new
     @portfolio_item = Portfolio.new
+    3.times { @portfolio_item.technologies.build }
   end
 
   def create
-    @portfolio_item = Blog.new(portfolio_item_params)
+    @portfolio_item = Portfolio.new(portfolio_item_params)
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to :index, notice: 'Your portflio is now live' }
+        format.html { redirect_to portfolios_url, notice: 'Your portflio is now live' }
       else
         format.html { render :new }
       end
@@ -32,7 +37,7 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_item_params)
-        format.html { redirect_to :index, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -40,7 +45,7 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @portflio.destroy
+    @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was removed.' }
     end
@@ -55,6 +60,6 @@ class PortfoliosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def portfolio_item_params
-    params.require(:portfolio).permit(:title, :body, :subtitle)
+    params.require(:portfolio).permit(:title, :body, :subtitle, technologies_attributes: [:name])
   end
 end
