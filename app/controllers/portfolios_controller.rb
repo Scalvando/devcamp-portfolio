@@ -19,11 +19,11 @@ class PortfoliosController < ApplicationController
   end
 
   def create
-    @portfolio_item = Blog.new(portfolio_item_params)
+    @portfolio_item = Portfolio.new(portfolio_item_params)
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to :index, notice: 'Your portflio is now live' }
+        format.html { redirect_to portfolios_url, notice: 'Your portflio is now live' }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_item_params)
-        format.html { redirect_to :index, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -44,7 +44,7 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    @portflio.destroy
+    @portfolio_item.destroy
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was removed.' }
     end
