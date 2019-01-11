@@ -3,6 +3,9 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
   layout 'blog'
+  access all: %i[show index],
+         user: { except: %i[destroy new create update edit] },
+         site_admin: :all
   # GET /blogs
   # GET /blogs.json
   def index
@@ -44,7 +47,10 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html do
+          redirect_to @blog,
+                      notice: 'Blog was successfully updated.'
+        end
       else
         format.html { render :edit }
       end
