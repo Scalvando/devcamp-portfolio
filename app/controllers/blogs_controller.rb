@@ -2,12 +2,12 @@
 
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[show edit update destroy toggle_status]
-  layout "blog"
+  layout 'blog'
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
-    @page_title = "My Portfolio Blog"
+    @page_title = 'My Portfolio Blog'
   end
 
   # GET /blogs/1
@@ -56,7 +56,10 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      format.html do
+        redirect_to blogs_url,
+                    notice: 'Blog was successfully destroyed.'
+      end
     end
   end
 

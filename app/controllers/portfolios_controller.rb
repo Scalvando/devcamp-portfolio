@@ -60,7 +60,7 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list 
+  # Never trust parameters from the scary internet, only allow the white list
   # through.
   def portfolio_item_params
     params.require(:portfolio).permit(:title,
