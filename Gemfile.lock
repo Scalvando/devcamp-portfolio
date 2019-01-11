@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Scalvando/soldner_view_tool
+  revision: c3f8c2345368861e3afacd243b0c4403d59a0aa9
+  specs:
+    soldner_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -217,6 +223,7 @@ DEPENDENCIES
   rack (>= 2.0.6)
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
+  soldner_view_tool!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

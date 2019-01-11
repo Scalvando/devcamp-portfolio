@@ -62,3 +62,5 @@ gem "loofah", ">= 2.2.3"
 gem 'devise', '~> 4.5'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
+
+gem 'soldner_view_tool', git: 'https://github.com/Scalvando/soldner_view_tool'
