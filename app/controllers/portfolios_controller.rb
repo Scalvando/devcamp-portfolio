@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio_item, only: [:show, :edit, :update, :destroy]
-  layout "portfolio"
+  before_action :set_portfolio_item, only: %i[show edit update destroy]
+  layout 'portfolio'
 
   def index
     @portfolio_items = Portfolio.all
@@ -12,8 +12,7 @@ class PortfoliosController < ApplicationController
     @angular_portfolio_items = Portfolio.angular
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @portfolio_item = Portfolio.new
@@ -25,15 +24,17 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_url, notice: 'Your portflio is now live' }
+        format.html do
+          redirect_to portfolios_url,
+                      notice: 'Your portflio is now live'
+        end
       else
         format.html { render :new }
       end
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -59,12 +60,12 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list 
+  # through.
   def portfolio_item_params
-    params.require(:portfolio).permit(:title, 
-                                      :body, 
-                                      :subtitle, 
-                                      technologies_attributes: [:name]
-                                      )
+    params.require(:portfolio).permit(:title,
+                                      :body,
+                                      :subtitle,
+                                      technologies_attributes: [:name])
   end
 end
