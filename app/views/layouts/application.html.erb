@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= @page_title %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="<%= @seo_keywords %>" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>
+    <%= @page_title %>
+  </title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="<%= @seo_keywords %>" />
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= render "shared/nav", location: 'top' %>
-    
-    <%= login_helper %>
+<body>
+  <div class="text-center">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <%= render "shared/application_nav" %>
 
-    <%= yield %>
+      <%= login_helper %>
 
-    <%= source_helper("application") %>
-    <%= copyright_generator %>
-  </body>
+      <%= yield %>
+      <%= copyright_generator %>
+      <%= source_helper("application") %>
+    </div>
+  </div>
+</body>
+
 </html>
