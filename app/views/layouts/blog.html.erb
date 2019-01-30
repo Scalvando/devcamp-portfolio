@@ -1,26 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= @page_title %></title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <meta name="keywords" content="<%= @seo_keywords %>" />
+<head>
+  <title>
+    <%= @page_title %>
+  </title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <meta name="keywords" content="<%= @seo_keywords %>" />
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <%= login_helper %>
-    
-    <%= yield %>
+  <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= render "shared/nav", location: 'bottom' %>
+<body>
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="blog-nav">
+        <a class="blog-nav-item active" href="#">Home</a>
+        <a class="blog-nav-item" href="#">New features</a>
+        <a class="blog-nav-item" href="#">Press</a>
+        <a class="blog-nav-item" href="#">New hires</a>
+        <a class="blog-nav-item" href="#">About</a>
+      </nav>
+    </div>
+  </div>
 
-    <%= source_helper("blog") %>
-  </body>
+
+  <div class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">The Bootstrap Blog</h1>
+      <p class="lead blog-description">Example</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <%= login_helper %>
+
+      <%= yield %>
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>About</h4>
+          <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
+            Aenean lacinia bibendum nulla sed consectetur.</p>
+        </div>
+        <div class="sidebar-module">
+          <h4>Archives</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">March 2014</a></li>
+            <li><a href="#">February 2014</a></li>
+            <li><a href="#">January 2014</a></li>
+            <li><a href="#">December 2013</a></li>
+            <li><a href="#">November 2013</a></li>
+            <li><a href="#">October 2013</a></li>
+            <li><a href="#">September 2013</a></li>
+            <li><a href="#">August 2013</a></li>
+            <li><a href="#">July 2013</a></li>
+            <li><a href="#">June 2013</a></li>
+            <li><a href="#">May 2013</a></li>
+            <li><a href="#">April 2013</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-module">
+          <h4>Elsewhere</h4>
+          <ol class="list-unstyled">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ol>
+        </div>
+      </div>
+
+      <footer class="blog-footer">
+        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+
+      <%= render "shared/nav", location: 'bottom' %>
+
+      <%= source_helper("blog") %>
+    </div>
+  </div>
+</body>
+
 </html>
