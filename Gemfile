@@ -65,3 +65,6 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'petergate', '~> 1.6', '>= 1.6.3'
 
 gem 'soldner_view_tool', git: 'https://github.com/Scalvando/soldner_view_tool'
+
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
+gem 'kaminari', '~> 1.1', '>= 1.1.1'

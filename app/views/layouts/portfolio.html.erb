@@ -5,6 +5,8 @@
   <title>
     <%= @page_title %>
   </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -15,20 +17,15 @@
 </head>
 
 <body>
-  <p class="notice">
-    <%= notice %>
-  </p>
-  <p class="alert">
-    <%= alert %>
-  </p>
-
-  <%= render "shared/nav", location: 'top' %>
+  <%= render "shared/portfolio_nav" %>
+  <%= render "shared/portfolio_masthead" %>
 
   <%= login_helper %>
 
   <%= yield %>
 
   <%= source_helper("application") %>
+  <%= render "shared/portfolio_footer" %>
 </body>
 
 </html>
