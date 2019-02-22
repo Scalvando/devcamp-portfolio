@@ -1,5 +1,5 @@
 <div class="col-md-4">
-  <div class="card mb-4 box-shadow">
+  <div class="card mb-4 box-shadow" data-id="<%= portfolio_item.id %>">
     <div class="card-header">
       <%= link_to portfolio_item.title, portfolio_show_path(portfolio_item.id) %>
     </div>
@@ -10,7 +10,7 @@
         <span class="badge badge-secondary"><%= portfolio_item.subtitle %></span>
       </h5>
       <p class="card-text">
-        <%= portfolio_item.body %>
+        <%# <%= portfolio_item.body %> 
       </p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
