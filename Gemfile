@@ -60,7 +60,7 @@ gem "rack", ">= 2.0.6"
 gem "loofah", ">= 2.2.3"
 
 gem 'devise', '~> 4.5'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'petergate', '~> 1.6', '>= 1.6.3'
 
